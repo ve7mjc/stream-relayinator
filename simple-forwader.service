@@ -1,0 +1,15 @@
+[Unit]
+Description=Stream Relayinator
+After=network.target
+
+[Service]
+Type=simple
+User=REPLACE_USER
+WorkingDirectory=/opt/stream-relayinator
+Environment="PATH=/opt/stream-relayinator"
+ExecStart=/opt/stream-relayinator/env/bin/python /opt/stream-relayinator/src/app.py
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
